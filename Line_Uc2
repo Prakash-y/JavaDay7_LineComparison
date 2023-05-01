@@ -1,0 +1,70 @@
+package Line_Comp;
+import java.util.Scanner;
+public class UC2 
+{
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        
+	        // Get the endpoints of the first line
+	        System.out.println("Enter the x-coordinate of the first endpoint of line 1:");
+	        double x1 = scanner.nextDouble();
+	        System.out.println("Enter the y-coordinate of the first endpoint of line 1:");
+	        double y1 = scanner.nextDouble();
+	        System.out.println("Enter the x-coordinate of the second endpoint of line 1:");
+	        double x2 = scanner.nextDouble();
+	        System.out.println("Enter the y-coordinate of the second endpoint of line 1:");
+	        double y2 = scanner.nextDouble();
+	        
+	        // Create the first line
+	        Line1 line = new Line1(x1, y1, x2, y2);
+	        
+	        // Get the endpoints of the second line
+	        System.out.println("Enter the x-coordinate of the first endpoint of line 2:");
+	        double x3 = scanner.nextDouble();
+	        System.out.println("Enter the y-coordinate of the first endpoint of line 2:");
+	        double y3 = scanner.nextDouble();
+	        System.out.println("Enter the x-coordinate of the second endpoint of line 2:");
+	        double x4 = scanner.nextDouble();
+	        System.out.println("Enter the y-coordinate of the second endpoint of line 2:");
+	        double y4 = scanner.nextDouble();
+	        
+	        // Create the second line
+	        Line1 line2 = new Line1(x3, y3, x4, y4);
+	        
+	        // Check if the lines are equal
+	        if (line.equals(line2)) {
+	            System.out.println("The lines are equal.");
+	        } else {
+	            System.out.println("The lines are not equal.");
+	        }
+	        
+	        scanner.close();
+	    }
+	}
+
+	class Line1
+	{
+	    private double x1;
+	    private double y1;
+	    private double x2;
+	    private double y2;
+	    
+	    public Line1(double x1, double y1, double x2, double y2) {
+	        this.x1 = x1;
+	        this.y1 = y1;
+	        this.x2 = x2;
+	        this.y2 = y2;
+	    }
+	    
+	    @Override
+	    public boolean equals(Object obj) {
+	        if (obj instanceof Line1) {
+	            Line1 other = (Line1) obj;
+	            return (this.x1 == other.x1 && this.y1 == other.y1 && this.x2 == other.x2 && this.y2 == other.y2) ||
+	                    (this.x1 == other.x2 && this.y1 == other.y2 && this.x2 == other.x1 && this.y2 == other.y1);
+	        }
+	        return false;
+	    }
+	}
+
+
