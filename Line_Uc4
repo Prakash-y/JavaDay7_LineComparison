@@ -1,0 +1,103 @@
+package Line_Comp;
+public class Point {
+    private double x;
+    private double y;
+    
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    public double getX() {
+        return x;
+    }
+    
+    public double getY() {
+        return y;
+    }
+    
+    public double distance(Point other) {
+        double dx = x - other.getX();
+        double dy = y - other.getY();
+        return Math.sqrt(dx*dx + dy*dy);
+    }
+    
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof Point)) {
+            return false;
+        }
+        Point p = (Point) other;
+        return x == p.getX() && y == p.getY();
+    }
+}
+
+ class Line {
+    private Point start;
+    private Point end;
+    
+    public Line(Point start, Point end) {
+        this.start = start;
+        this.end = end;
+    }
+    
+    public Point getStart() {
+        return start;
+    }
+    
+    public Point getEnd() {
+        return end;
+    }
+    
+    public double length() {
+        return start.distance(end);
+    }
+    
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof Line)) {
+            return false;
+        }
+        Line l = (Line) other;
+        return start.equals(l.getStart()) && end.equals(l.getEnd());
+    }
+    
+    public int compareTo(Line other) {
+        Double length1 = length();
+        Double length2 = other.length();
+        return length1.compareTo(length2);
+    }
+    package Line_Comp;
+
+ class Main 
+{
+	
+	    public static void main(String[] args) {
+	        Point p1 = new Point(1, 2);
+	        Point p2 = new Point(3, 4);
+	        Point p3 = new Point(1, 2);
+	        Line line1 = new Line(p1, p2);
+	        Line line2 = new Line(p1, p3);
+	        
+	        System.out.println(p1.equals(p2)); 
+	        System.out.println(p1.equals(p3)); 
+	        
+	        System.out.println(line1.equals(line2)); 
+	        
+	        System.out.println(line1.compareTo(line2)); 
+	        
+	        Point p4 = new Point(5, 6);
+	        Line line3 = new Line(p1, p4);
+	        
+	        System.out.println(line1.compareTo(line3)); 
+	        System.out.println(line3.compareTo(line1)); 
+	    }
+}
+
+}
+
+
+
+
+
+
