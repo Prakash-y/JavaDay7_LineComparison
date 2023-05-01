@@ -1,0 +1,46 @@
+package Line_Comp;
+import java.util.Scanner;
+public class UC3 
+{
+	
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+
+	        System.out.println("Enter the coordinates of the first line: ");
+	        System.out.print("x1: ");
+	        double x1 = sc.nextDouble();
+	        System.out.print("y1: ");
+	        double y1 = sc.nextDouble();
+	        System.out.print("x2: ");
+	        double x2 = sc.nextDouble();
+	        System.out.print("y2: ");
+	        double y2 = sc.nextDouble();
+
+	        double length1 = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+
+	        System.out.println("Enter the coordinates of the second line: ");
+	        System.out.print("x1: ");
+	        double x3 = sc.nextDouble();
+	        System.out.print("y1: ");
+	        double y3 = sc.nextDouble();
+	        System.out.print("x2: ");
+	        double x4 = sc.nextDouble();
+	        System.out.print("y2: ");
+	        double y4 = sc.nextDouble();
+
+	        double length2 = Math.sqrt(Math.pow((x4 - x3), 2) + Math.pow((y4 - y3), 2));
+
+	        int result = Double.compare(length1, length2);
+	        if (result > 0) {
+	            System.out.println("The first line is greater than the second line.");
+	        } else if (result < 0) {
+	            System.out.println("The first line is less than the second line.");
+	        } else {
+	            System.out.println("The first line is equal to the second line.");
+	        }
+
+	       sc.close();
+	    }
+	}
+
+
